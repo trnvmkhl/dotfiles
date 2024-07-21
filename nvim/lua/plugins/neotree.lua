@@ -9,6 +9,7 @@ return {
   },
   config = function()
     require("neo-tree").setup({
+      close_if_last_window = false,
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
@@ -16,6 +17,10 @@ return {
       },
     })
     --setup neotree keybindings
-    vim.keymap.set("n", "<C-b>", ":Neotree action=show source=filesystem reveal=true position=left toggle=true<CR>")
+    vim.keymap.set(
+      "n",
+      "<C-b>",
+      ":Neotree action=focus source=filesystem reveal=true position=left toggle=true<CR>"
+    )
   end,
 }
